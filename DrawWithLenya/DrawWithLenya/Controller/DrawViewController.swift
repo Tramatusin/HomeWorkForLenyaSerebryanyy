@@ -7,10 +7,13 @@
 
 import UIKit
 
-class DrawViewController: UIViewController {
+class DrawViewController: UIViewController{
+    
+    let canvas = DrawView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .brown
+        canvas.backgroundColor = .blue
+        view = canvas
     }
 }
