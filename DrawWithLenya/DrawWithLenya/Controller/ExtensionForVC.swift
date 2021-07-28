@@ -24,13 +24,13 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didEndDisplaying cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if indexPath.row == 1 {
-            navigationItem.rightBarButtonItem = nil
+            navigationItem.rightBarButtonItem = rightBarButtonItem
         }
     }
     
     func collectionView(_ collectionView: UICollectionView, willDisplay cell: UICollectionViewCell, forItemAt indexPath: IndexPath) {
         if indexPath.row == 1 {
-            navigationItem.rightBarButtonItem = rightBarButtonItem
+            navigationItem.rightBarButtonItem = nil
         }
     }
 }
