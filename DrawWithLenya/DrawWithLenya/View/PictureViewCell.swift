@@ -9,19 +9,19 @@ import UIKit
 
 class PictureViewCell: UICollectionViewCell {
     
-    
-    var imgView: UIImageView = {
-        let imageView = UIImageView(frame: .zero)
-        imageView.backgroundColor = .red
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
-    
-    var label: UILabel = {
-        let label = UILabel()
-        label.text = "Hello world!"
-        return label
-    }()
+//    
+//    var imgView: UIImageView = {
+//        let imageView = UIImageView(frame: .zero)
+//        imageView.backgroundColor = .red
+//        imageView.translatesAutoresizingMaskIntoConstraints = false
+//        return imageView
+//    }()
+//    
+//    var label: UILabel = {
+//        let label = UILabel()
+//        label.text = "Hello world!"
+//        return label
+//    }()
     
     override init(frame: CGRect) {
         super.init(frame: .zero)

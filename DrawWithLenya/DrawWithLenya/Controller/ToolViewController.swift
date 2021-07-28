@@ -29,23 +29,33 @@ class ToolViewController: UIViewController{
         return tableView
     }()
     
-    let canvas = DrawView()
-    var line :[CGPoint] = []
-    let tools = ToolsForDraw()
-    var currentTool: ModeDraw = .triangle
-    var color: UIColor = UIColor.red
+    let drawVC = DrawsViewController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        canvas.backgroundColor = .blue
-        view = canvas
-        
+        self.addChild(drawVC)
+        view.addSubview(drawVC.view)
         setupConstraints()
+        tableViewForColors.isHidden = false
+        drawVC.canvas.tapOnBut = { [weak self] in
+            self?.tableViewForColors.isHidden = false
+        }
+        //drawVC.didMove(toParent: self)
     }
+    
     
     func setupConstraints(){
         view.addSubview(collectionFromTools)
         view.addSubview(tableViewForColors)
+        
+        drawVC.view.translatesAutoresizingMaskIntoConstraints = false
+
+        NSLayoutConstraint.activate([
+            drawVC.view.leftAnchor.constraint(equalTo: self.view.leftAnchor),
+            drawVC.view.rightAnchor.constraint(equalTo: self.view.rightAnchor),
+            drawVC.view.topAnchor.constraint(equalTo: self.view.topAnchor),
+            drawVC.view.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
+        ])
 
         NSLayoutConstraint.activate([
             collectionFromTools.leftAnchor.constraint(equalTo: view.leftAnchor),
@@ -93,8 +103,9 @@ extension ToolViewController: UITableViewDelegate, UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        color = Colors.colorsForLines[indexPath.row]
+        drawVC.color = Colors.colorsForLines[indexPath.row]
         tableView.isHidden = true
+        drawVC.canvas.buttonForPalette.isHidden = false
     }
     
 }

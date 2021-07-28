@@ -40,10 +40,6 @@ class ToolsForDraw{
         path.addLine(to: CGPoint(x: firstP.x + quar.widthCoef * rect.width, y: firstP.y))
         path.addLine(to: CGPoint(x: rect.origin.x + quar.widthCoef * rect.width/2, y: firstP.y + quar.heightCoef * rect.height))
         path.close()
-        
-        let color = UIColor.red
-        color.setStroke()
-        path.stroke()
         return path
     }
     
@@ -59,10 +55,6 @@ class ToolsForDraw{
                                 width: quarter.widthCoef * rectForCircle.width,
                                 height: quarter.heightCoef * rectForCircle.height),
                                      cornerRadius: 20)
-        
-        let color = UIColor.red
-        color.setStroke()
-        path.stroke()
         return path
     }
     
@@ -75,10 +67,6 @@ class ToolsForDraw{
         
         path.move(to: firstP)
         path.addLine(to: secondP)
-        
-        let color = UIColor.red
-        color.setStroke()
-        path.stroke()
         return path
     }
     
@@ -91,10 +79,6 @@ class ToolsForDraw{
                 path.addLine(to: point)
             }
         }
-        
-        let color = UIColor.red
-        color.setStroke()
-        path.stroke()
         return path
     }
     
@@ -108,10 +92,6 @@ class ToolsForDraw{
         let path = UIBezierPath.init(rect: CGRect.init(x: firstP.x, y: firstP.y,
                                     width: quarter.widthCoef * rectForCircle.width,
                                     height: quarter.heightCoef * rectForCircle.height))
-        
-        let color = UIColor.red
-        color.setStroke()
-        path.stroke()
         return path
     }
     
@@ -126,10 +106,6 @@ class ToolsForDraw{
         let path = UIBezierPath.init(ovalIn: CGRect.init(x: firstP.x, y: firstP.y,
                                      width: quarter.widthCoef * rectForCircle.width,
                                      height: quarter.heightCoef * rectForCircle.height))
-        
-        let color = UIColor.red
-        color.setStroke()
-        path.stroke()
         return path
     }
     

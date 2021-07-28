@@ -29,7 +29,7 @@ class ViewController: UIViewController {
     }
     
     @objc func addAction() {
-        navigationController?.pushViewController(DrawViewController(), animated: true)
+        navigationController?.pushViewController(ToolViewController(), animated: true)
     }
     
     func confCollestionView() {
