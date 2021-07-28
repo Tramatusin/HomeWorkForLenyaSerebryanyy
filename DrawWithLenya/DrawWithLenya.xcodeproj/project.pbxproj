@@ -117,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				316C3F1D26AC3E290098F036 /* PictureViewCell.swift */,
+				31CA040026B19E4700DB032D /* NewFileViewCell.swift */,
 				31CA03DA26AC4C0900DB032D /* DrawView.swift */,
 				5BDB34C526B19A77001083B3 /* ToolsViewCell.swift */,
 				5BDB34CB26B1A368001083B3 /* ColorViewCell.swift */,
@@ -205,6 +206,7 @@
 				316C3F0326AC37F50098F036 /* ViewController.swift in Sources */,
 				31CA03DB26AC4C0900DB032D /* DrawView.swift in Sources */,
 				316C3F1E26AC3E290098F036 /* PictureViewCell.swift in Sources */,
+				31CA040126B19E4700DB032D /* NewFileViewCell.swift in Sources */,
 				316C3EFF26AC37F50098F036 /* AppDelegate.swift in Sources */,
 				316C3F0126AC37F50098F036 /* SceneDelegate.swift in Sources */,
 				5BF3C6EA26B04F2C00C2D189 /* ToolsBar.swift in Sources */,

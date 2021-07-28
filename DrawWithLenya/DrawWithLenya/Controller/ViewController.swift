@@ -9,21 +9,23 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    let rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .add, target: self, action: #selector(addAction))
+    
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
-        layout.scrollDirection = .horizontal
-        //add insets
+        layout.scrollDirection = .vertical
+        layout.minimumLineSpacing = 2
+        layout.minimumInteritemSpacing = 2
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
         cv.translatesAutoresizingMaskIntoConstraints = false
         cv.register(PictureViewCell.self, forCellWithReuseIdentifier: "Picture")
+        cv.register(NewFileViewCell.self, forCellWithReuseIdentifier: "New")
     
         return cv
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .cyan
-        let rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .add, target: self, action: #selector(addAction))
         navigationItem.rightBarButtonItem = rightBarButtonItem
         confCollestionView()
     }
