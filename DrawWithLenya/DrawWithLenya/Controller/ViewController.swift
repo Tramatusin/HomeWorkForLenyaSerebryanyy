@@ -9,7 +9,7 @@ import UIKit
 
 class ViewController: UIViewController {
     
-    let rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .add, target: self, action: #selector(addAction))
+    var rightBarButtonItem = UIBarButtonItem()
     
     let collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -26,6 +26,7 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .add, target: self, action: #selector(addAction))
         navigationItem.rightBarButtonItem = rightBarButtonItem
         confCollestionView()
     }

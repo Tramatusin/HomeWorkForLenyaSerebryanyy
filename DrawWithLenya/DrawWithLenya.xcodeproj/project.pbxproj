@@ -18,6 +18,7 @@
 		316C3F1E26AC3E290098F036 /* PictureViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 316C3F1D26AC3E290098F036 /* PictureViewCell.swift */; };
 		31CA03D926AC4BC700DB032D /* ToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CA03D826AC4BC700DB032D /* ToolViewController.swift */; };
 		31CA03DB26AC4C0900DB032D /* DrawView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CA03DA26AC4C0900DB032D /* DrawView.swift */; };
+		31CA040326B1F60400DB032D /* NewFileViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CA040226B1F60400DB032D /* NewFileViewCell.swift */; };
 		5BDB34C626B19A77001083B3 /* ToolsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDB34C526B19A77001083B3 /* ToolsViewCell.swift */; };
 		5BDB34C826B19CF4001083B3 /* ToolsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDB34C726B19CF4001083B3 /* ToolsEnum.swift */; };
 		5BDB34CC26B1A368001083B3 /* ColorViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDB34CB26B1A368001083B3 /* ColorViewCell.swift */; };
@@ -40,6 +41,7 @@
 		316C3F1D26AC3E290098F036 /* PictureViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PictureViewCell.swift; sourceTree = "<group>"; };
 		31CA03D826AC4BC700DB032D /* ToolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolViewController.swift; sourceTree = "<group>"; };
 		31CA03DA26AC4C0900DB032D /* DrawView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawView.swift; sourceTree = "<group>"; };
+		31CA040226B1F60400DB032D /* NewFileViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFileViewCell.swift; sourceTree = "<group>"; };
 		5BDB34C526B19A77001083B3 /* ToolsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsViewCell.swift; sourceTree = "<group>"; };
 		5BDB34C726B19CF4001083B3 /* ToolsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsEnum.swift; sourceTree = "<group>"; };
 		5BDB34CB26B1A368001083B3 /* ColorViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewCell.swift; sourceTree = "<group>"; };
@@ -116,8 +118,8 @@
 		316C3F1426AC39D30098F036 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				31CA040226B1F60400DB032D /* NewFileViewCell.swift */,
 				316C3F1D26AC3E290098F036 /* PictureViewCell.swift */,
-				31CA040026B19E4700DB032D /* NewFileViewCell.swift */,
 				31CA03DA26AC4C0900DB032D /* DrawView.swift */,
 				5BDB34C526B19A77001083B3 /* ToolsViewCell.swift */,
 				5BDB34CB26B1A368001083B3 /* ColorViewCell.swift */,
@@ -199,6 +201,7 @@
 				316C3F1826AC3CB00098F036 /* Picture.swift in Sources */,
 				5BDB34CE26B1A93C001083B3 /* Colors.swift in Sources */,
 				5BDB34C626B19A77001083B3 /* ToolsViewCell.swift in Sources */,
+				31CA040326B1F60400DB032D /* NewFileViewCell.swift in Sources */,
 				5BDB34CC26B1A368001083B3 /* ColorViewCell.swift in Sources */,
 				5BDB34D026B1E3B3001083B3 /* DrawsViewController.swift in Sources */,
 				5BDB34C826B19CF4001083B3 /* ToolsEnum.swift in Sources */,
@@ -206,7 +209,6 @@
 				316C3F0326AC37F50098F036 /* ViewController.swift in Sources */,
 				31CA03DB26AC4C0900DB032D /* DrawView.swift in Sources */,
 				316C3F1E26AC3E290098F036 /* PictureViewCell.swift in Sources */,
-				31CA040126B19E4700DB032D /* NewFileViewCell.swift in Sources */,
 				316C3EFF26AC37F50098F036 /* AppDelegate.swift in Sources */,
 				316C3F0126AC37F50098F036 /* SceneDelegate.swift in Sources */,
 				5BF3C6EA26B04F2C00C2D189 /* ToolsBar.swift in Sources */,
