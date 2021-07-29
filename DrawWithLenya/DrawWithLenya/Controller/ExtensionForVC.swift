@@ -9,16 +9,16 @@ import UIKit
 
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        PictureStash.pictures.count
-        15
+        PictureStash.pictures.count + 1
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if indexPath.row == 0 {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "New", for: indexPath) as! NewFileViewCell
-            return cell
+        return cell
         }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Picture", for: indexPath) as! PictureViewCell
+        cell.configCell(name: PictureStash.pictures[indexPath.row - 1].imgName)
         return cell
     }
     
@@ -36,7 +36,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if indexPath.row == 0 {
-            navigationController?.pushViewController(ToolViewController(), animated: true)
+            pushDrawVC()
         }
     }
 }

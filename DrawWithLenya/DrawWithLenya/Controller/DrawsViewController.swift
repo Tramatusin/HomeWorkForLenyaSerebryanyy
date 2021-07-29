@@ -19,6 +19,10 @@ class DrawsViewController: UIViewController {
         view = canvas
         view.backgroundColor = .blue
         super.viewDidLoad()
+        
+        let backButton = UIBarButtonItem()
+        backButton.title = "Gallery"
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem = backButton
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
