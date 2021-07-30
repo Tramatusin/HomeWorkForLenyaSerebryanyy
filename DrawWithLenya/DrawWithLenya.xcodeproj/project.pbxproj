@@ -19,11 +19,12 @@
 		31CA03D926AC4BC700DB032D /* ToolViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CA03D826AC4BC700DB032D /* ToolViewController.swift */; };
 		31CA03DB26AC4C0900DB032D /* DrawViewForDrawsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CA03DA26AC4C0900DB032D /* DrawViewForDrawsController.swift */; };
 		31CA040326B1F60400DB032D /* NewFileViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CA040226B1F60400DB032D /* NewFileViewCell.swift */; };
+		5B529EC526B495D9005CB5AE /* Figure.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B529EC426B495D9005CB5AE /* Figure.swift */; };
 		5B9D935426B2ABDA00AC0519 /* ViewForToolsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B9D935326B2ABDA00AC0519 /* ViewForToolsController.swift */; };
 		5BDB34C626B19A77001083B3 /* ToolsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDB34C526B19A77001083B3 /* ToolsViewCell.swift */; };
 		5BDB34C826B19CF4001083B3 /* ToolsEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDB34C726B19CF4001083B3 /* ToolsEnum.swift */; };
 		5BDB34CC26B1A368001083B3 /* ColorViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDB34CB26B1A368001083B3 /* ColorViewCell.swift */; };
-		5BDB34CE26B1A93C001083B3 /* Colors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDB34CD26B1A93C001083B3 /* Colors.swift */; };
+		5BDB34CE26B1A93C001083B3 /* DataStash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDB34CD26B1A93C001083B3 /* DataStash.swift */; };
 		5BDB34D026B1E3B3001083B3 /* DrawsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BDB34CF26B1E3B3001083B3 /* DrawsViewController.swift */; };
 		5BF3C6EA26B04F2C00C2D189 /* ToolsBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5BF3C6E926B04F2C00C2D189 /* ToolsBar.swift */; };
 /* End PBXBuildFile section */
@@ -43,11 +44,12 @@
 		31CA03D826AC4BC700DB032D /* ToolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolViewController.swift; sourceTree = "<group>"; };
 		31CA03DA26AC4C0900DB032D /* DrawViewForDrawsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawViewForDrawsController.swift; sourceTree = "<group>"; };
 		31CA040226B1F60400DB032D /* NewFileViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewFileViewCell.swift; sourceTree = "<group>"; };
+		5B529EC426B495D9005CB5AE /* Figure.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Figure.swift; sourceTree = "<group>"; };
 		5B9D935326B2ABDA00AC0519 /* ViewForToolsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewForToolsController.swift; sourceTree = "<group>"; };
 		5BDB34C526B19A77001083B3 /* ToolsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsViewCell.swift; sourceTree = "<group>"; };
 		5BDB34C726B19CF4001083B3 /* ToolsEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsEnum.swift; sourceTree = "<group>"; };
 		5BDB34CB26B1A368001083B3 /* ColorViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorViewCell.swift; sourceTree = "<group>"; };
-		5BDB34CD26B1A93C001083B3 /* Colors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Colors.swift; sourceTree = "<group>"; };
+		5BDB34CD26B1A93C001083B3 /* DataStash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataStash.swift; sourceTree = "<group>"; };
 		5BDB34CF26B1E3B3001083B3 /* DrawsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawsViewController.swift; sourceTree = "<group>"; };
 		5BF3C6E926B04F2C00C2D189 /* ToolsBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolsBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,7 +103,8 @@
 				316C3F1B26AC3D730098F036 /* PictureStash.swift */,
 				5BF3C6E926B04F2C00C2D189 /* ToolsBar.swift */,
 				5BDB34C726B19CF4001083B3 /* ToolsEnum.swift */,
-				5BDB34CD26B1A93C001083B3 /* Colors.swift */,
+				5BDB34CD26B1A93C001083B3 /* DataStash.swift */,
+				5B529EC426B495D9005CB5AE /* Figure.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -202,8 +205,9 @@
 				31CA03D926AC4BC700DB032D /* ToolViewController.swift in Sources */,
 				316C3F1626AC3C320098F036 /* ExtensionForVC.swift in Sources */,
 				316C3F1826AC3CB00098F036 /* Picture.swift in Sources */,
-				5BDB34CE26B1A93C001083B3 /* Colors.swift in Sources */,
+				5BDB34CE26B1A93C001083B3 /* DataStash.swift in Sources */,
 				5BDB34C626B19A77001083B3 /* ToolsViewCell.swift in Sources */,
+				5B529EC526B495D9005CB5AE /* Figure.swift in Sources */,
 				31CA040326B1F60400DB032D /* NewFileViewCell.swift in Sources */,
 				5BDB34CC26B1A368001083B3 /* ColorViewCell.swift in Sources */,
 				5BDB34D026B1E3B3001083B3 /* DrawsViewController.swift in Sources */,

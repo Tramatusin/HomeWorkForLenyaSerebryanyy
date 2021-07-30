@@ -40,6 +40,7 @@ class DrawsViewController: UIViewController {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        line = [CGPoint]()
         let pathForLayer = tools.callWantedDrawFunc(tool: currentTool, line: line)
         let shapelayer = CAShapeLayer()
         shapelayer.fillColor = UIColor.clear.cgColor
@@ -47,6 +48,5 @@ class DrawsViewController: UIViewController {
         shapelayer.lineWidth = 4
         shapelayer.path = pathForLayer.cgPath
         view.layer.addSublayer(shapelayer)
-        line = [CGPoint]()
     }
 }

@@ -61,6 +61,7 @@ class ToolViewController: UIViewController{
     @objc
     func tapOnBar(){
         drawVC.view.layer.sublayers?.removeLast()
+        drawVC.line = .init()
     }
     
     @objc
@@ -78,7 +79,7 @@ class ToolViewController: UIViewController{
         
         NSLayoutConstraint.activate([
             buttonForPalette.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 8),
-            buttonForPalette.topAnchor.constraint(equalTo: view.topAnchor, constant: 74),
+            buttonForPalette.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 34),
             buttonForPalette.widthAnchor.constraint(equalToConstant: 60),
             buttonForPalette.heightAnchor.constraint(equalTo: buttonForPalette.widthAnchor)
         ])
@@ -94,12 +95,12 @@ class ToolViewController: UIViewController{
             collectionFromTools.leftAnchor.constraint(equalTo: view.leftAnchor),
             collectionFromTools.rightAnchor.constraint(equalTo: view.rightAnchor),
             collectionFromTools.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -8),
-            collectionFromTools.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.15)
+            collectionFromTools.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.135)
         ])
         
         NSLayoutConstraint.activate([
             tableViewForColors.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 8),
-            tableViewForColors.topAnchor.constraint(equalTo: view.topAnchor, constant:74),
+            tableViewForColors.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant:34),
             tableViewForColors.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.6),
             tableViewForColors.widthAnchor.constraint(equalToConstant: 60)
         ])
@@ -114,29 +115,14 @@ extension ToolViewController:  UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let toolCell = collectionView.dequeueReusableCell(withReuseIdentifier: "tools", for: indexPath) as! ToolsViewCell
-        toolCell.setImage(image: UIImage(named: Colors.namesOfImage[indexPath.row]) ?? UIImage())
+        toolCell.setImage(image: UIImage(named: DataStash.namesOfImage[indexPath.row].namedForImage) ?? UIImage())
         return toolCell
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedIndexPath = indexPath
         collectionView.performBatchUpdates(nil, completion: nil)
-        switch indexPath.row {
-        case 0:
-            drawVC.currentTool = .circle
-        case 1:
-            drawVC.currentTool = .rect
-        case 2:
-            drawVC.currentTool = .straight
-        case 3:
-            drawVC.currentTool = .triangle
-        case 4:
-            drawVC.currentTool = .line
-        case 5:
-            drawVC.currentTool = .rectWithCornRadius
-        default:
-            print(indexPath)
-        }
+        drawVC.currentTool = DataStash.namesOfImage[indexPath.row].type
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
@@ -144,9 +130,10 @@ extension ToolViewController:  UICollectionViewDelegate, UICollectionViewDataSou
         var size = CGSize(width: 60, height: 60)
         if let index = selectedIndexPath, index.row == indexPath.row{
             size = CGSize(width: 60*1.5, height: 60*1.5)
+            //cell?.layer.cornerRadius = (60*1.5)/2.0
             UIView.animate(withDuration: 2.0, animations: {
                 cell?.layer.cornerRadius = (60*1.5)/2.0
-                cell?.transform = CGAffineTransform(scaleX: 1.5, y: 1.5)
+                cell?.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
             })
             return size
         }
@@ -161,18 +148,18 @@ extension ToolViewController:  UICollectionViewDelegate, UICollectionViewDataSou
 extension ToolViewController: UITableViewDelegate, UITableViewDataSource{
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        Colors.colorsForLines.count
+        DataStash.colorsForLines.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cellForColor =  tableView.dequeueReusableCell(withIdentifier: "color", for: indexPath) as! ColorViewCell
-        cellForColor.contentView.backgroundColor = Colors.colorsForLines[indexPath.row]
+        cellForColor.contentView.backgroundColor = DataStash.colorsForLines[indexPath.row]
         return cellForColor
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        drawVC.color = Colors.colorsForLines[indexPath.row]
-        buttonForPalette.backgroundColor = Colors.colorsForLines[indexPath.row]
+        drawVC.color = DataStash.colorsForLines[indexPath.row]
+        buttonForPalette.backgroundColor = DataStash.colorsForLines[indexPath.row]
         UIView.animate(withDuration: 2.5, animations: {
             [weak self] in
             tableView.isHidden = true
