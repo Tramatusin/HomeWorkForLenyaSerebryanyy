@@ -15,4 +15,13 @@ class Colors{
         UIColor.systemGray6, UIColor.systemGreen,UIColor.systemOrange, UIColor.systemYellow,
         UIColor.systemPurple, UIColor.systemIndigo, UIColor.systemFill, UIColor.systemBackground
     ]
+    
+    static var namesOfImage: [String] = [
+        "Circle.png",
+        "Rect.png",
+        "Straight.png",
+        "Triangle.png",
+        "Line.png",
+        "RectWithCornRadius.png"
+    ]
 }

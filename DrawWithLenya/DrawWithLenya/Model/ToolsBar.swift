@@ -48,13 +48,10 @@ class ToolsForDraw{
             return UIBezierPath.init()
         }
         let rectForCircle = CGRect(x: firstP.x, y: firstP.y, width: secondP.x - firstP.x , height:  secondP.y - firstP.y)
-        let quarter = calculateQuarter(firstP: firstP, secondP: secondP)
         
-        let path = UIBezierPath.init(roundedRect:
-                    CGRect.init(x: firstP.x, y: firstP.y,
-                                width: quarter.widthCoef * rectForCircle.width,
-                                height: quarter.heightCoef * rectForCircle.height),
-                                     cornerRadius: 20)
+        let path = UIBezierPath.init(roundedRect: CGRect.init(x: firstP.x, y: firstP.y,
+                                                              width: rectForCircle.width,
+                                                              height: rectForCircle.height), cornerRadius: 15)
         return path
     }
     

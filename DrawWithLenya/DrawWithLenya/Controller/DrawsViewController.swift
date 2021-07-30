@@ -9,15 +9,15 @@ import UIKit
 
 class DrawsViewController: UIViewController {
     
-    let canvas = DrawView()
+    let canvas = DrawViewForDrawsController()
     var line :[CGPoint] = []
     let tools = ToolsForDraw()
-    var currentTool: ModeDraw = .triangle
+    var currentTool: ModeDraw = .line
     public var color: UIColor = UIColor.red
     
     override func viewDidLoad() {
         view = canvas
-        view.backgroundColor = .blue
+        view.backgroundColor = .white
         super.viewDidLoad()
     }
     
