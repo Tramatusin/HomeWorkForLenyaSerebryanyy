@@ -8,5 +8,10 @@
 import Foundation
 
 class Picture {
+
+    var imgName: String
     
+    init(name: String) {
+        imgName = name
+    }
 }

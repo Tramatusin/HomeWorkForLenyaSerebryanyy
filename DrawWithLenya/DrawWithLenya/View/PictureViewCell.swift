@@ -17,15 +17,28 @@ class PictureViewCell: UICollectionViewCell {
 //        return imageView
 //    }()
 //    
-//    var label: UILabel = {
-//        let label = UILabel()
-//        label.text = "Hello world!"
-//        return label
-//    }()
+    var label: UILabel = {
+        let label = UILabel()
+        label.textAlignment = .center
+        return label
+    }()
+    
+    func configCell(name: String) {
+        label.text = name
+    }
     
     override init(frame: CGRect) {
         super.init(frame: .zero)
         contentView.backgroundColor = .red
+        contentView.addSubview(label)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        
+        NSLayoutConstraint.activate([
+            label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -10),
+            label.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
+            label.heightAnchor.constraint(equalToConstant: 20),
+            label.widthAnchor.constraint(equalToConstant: 100)
+        ])
     }
     
     required init?(coder: NSCoder) {

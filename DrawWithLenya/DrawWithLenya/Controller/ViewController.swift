@@ -20,18 +20,22 @@ class ViewController: UIViewController {
         cv.translatesAutoresizingMaskIntoConstraints = false
         cv.register(PictureViewCell.self, forCellWithReuseIdentifier: "Picture")
         cv.register(NewFileViewCell.self, forCellWithReuseIdentifier: "New")
-    
         return cv
     }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .add, target: self, action: #selector(addAction))
+        navigationItem.title = "You have \(PictureStash.pictures.count) images"
         navigationItem.rightBarButtonItem = rightBarButtonItem
         confCollestionView()
     }
     
     @objc func addAction() {
+       pushDrawVC()
+    }
+    
+    func pushDrawVC() {
         navigationController?.pushViewController(ToolViewController(), animated: true)
     }
     
