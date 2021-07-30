@@ -24,6 +24,7 @@ class ToolsViewCell: UICollectionViewCell {
         layer.masksToBounds = false
         self.layer.borderWidth = 1.5
         self.layer.borderColor = UIColor.black.cgColor
+        backgroundColor = .systemBlue
         setupConstraint()
     }
     
