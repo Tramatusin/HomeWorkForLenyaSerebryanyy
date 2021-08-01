@@ -98,9 +98,21 @@ class ToolViewController: UIViewController{
         let image = renderer.image { rendererContext in
             drawVC.view.layer.render(in: rendererContext.cgContext)
         }
-        let renderedImage = Picture.init(name: "MyImage", image: image)
-        delegate?.save(image: renderedImage)
-        navigationController?.popViewController(animated: true)
+        let alertView = UIAlertController(title: "Name", message: nil, preferredStyle: .alert)
+        var namedTextField: UITextField?
+        var imageName: String = ""
+        alertView.addTextField { text in
+            namedTextField = text
+            text.placeholder = "Enter picture name"
+        }
+        alertView.addAction(UIAlertAction(title: "OK", style: .default, handler: { _ in
+            imageName = namedTextField?.text ?? "Unnamed image"
+            let renderedImage = Picture.init(name: imageName, image: image)
+            self.delegate?.save(image: renderedImage)
+            self.navigationController?.popViewController(animated: true)
+        }))
+        
+        self.present(alertView, animated: true, completion: nil)
     }
     
     func setupCollectonViewSideGradient() {

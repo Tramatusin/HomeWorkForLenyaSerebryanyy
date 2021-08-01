@@ -49,6 +49,13 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+extension ViewController: SaveImageProtocol {
+    func save(image: Picture) {
+        PictureStash.pictures.insert(image, at: 0)
+        collectionView.reloadData()
+    }
+}
+
 //MARK: Здесь расширения для коллекции, которая находится в рисовалке
 extension ToolViewController:  UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
     
@@ -113,11 +120,4 @@ extension ToolViewController: UITableViewDelegate, UITableViewDataSource{
         })
     }
     
-}
-
-extension ViewController: SaveImageProtocol {
-    func save(image: Picture) {
-        PictureStash.pictures.insert(image, at: 0)
-        collectionView.reloadData()
-    }
 }
