@@ -52,6 +52,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
 extension ViewController: SaveImageProtocol {
     func save(image: Picture) {
         PictureStash.pictures.insert(image, at: 0)
+        updateNavTitle()
         collectionView.reloadData()
     }
 }
