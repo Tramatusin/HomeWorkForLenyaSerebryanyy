@@ -7,6 +7,10 @@
 
 import UIKit
 
+protocol SaveImageProtocol: AnyObject {
+    func save(image: Picture)
+}
+
 class ViewController: UIViewController {
     
     var rightBarButtonItem = UIBarButtonItem()
@@ -36,7 +40,9 @@ class ViewController: UIViewController {
     }
     
     func pushDrawVC() {
-        navigationController?.pushViewController(ToolViewController(), animated: true)
+        let controller = ToolViewController()
+        controller.delegate = self
+        navigationController?.pushViewController(controller, animated: true)
     }
     
     func confCollestionView() {

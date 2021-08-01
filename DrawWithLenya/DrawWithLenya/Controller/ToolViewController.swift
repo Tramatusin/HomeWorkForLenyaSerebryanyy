@@ -9,6 +9,8 @@ import UIKit
 
 class ToolViewController: UIViewController{
     
+    weak var delegate: SaveImageProtocol?
+    
     var buttonForPalette: UIButton = {
         let button = UIButton()
         button.setImage(UIImage(systemName: "paintpalette"), for: .normal)
@@ -85,12 +87,21 @@ class ToolViewController: UIViewController{
         tableViewForColors.isHidden = true
         setupConstraints()
         setupCollectonViewSideGradient()
-        let rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .cancel, target: self, action: #selector(tapOnBar))
-        navigationItem.rightBarButtonItem = rightBarButtonItem
+        let rightBarButtonSave = UIBarButtonItem.init(barButtonSystemItem: .save, target: self, action: #selector(saveImage))
+        let rightBarButtonCancel = UIBarButtonItem.init(barButtonSystemItem: .cancel, target: self, action: #selector(tapOnBar))
+        navigationItem.rightBarButtonItems = [rightBarButtonCancel, rightBarButtonSave]
         //drawVC.didMove(toParent: self)
     }
     
-    
+    @objc func saveImage() {
+        let renderer = UIGraphicsImageRenderer(bounds: drawVC.view.bounds)
+        let image = renderer.image { rendererContext in
+            drawVC.view.layer.render(in: rendererContext.cgContext)
+        }
+        let renderedImage = Picture.init(name: "MyImage", image: image)
+        delegate?.save(image: renderedImage)
+        navigationController?.popViewController(animated: true)
+    }
     
     func setupCollectonViewSideGradient() {
         view.addSubview(rightGradientView)

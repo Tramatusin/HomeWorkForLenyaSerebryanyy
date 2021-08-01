@@ -115,3 +115,9 @@ extension ToolViewController: UITableViewDelegate, UITableViewDataSource{
     
 }
 
+extension ViewController: SaveImageProtocol {
+    func save(image: Picture) {
+        PictureStash.pictures.insert(image, at: 0)
+        collectionView.reloadData()
+    }
+}
