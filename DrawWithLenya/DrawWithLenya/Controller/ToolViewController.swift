@@ -74,6 +74,7 @@ class ToolViewController: UIViewController{
     
     let drawVC = DrawsViewController()
     var selectedIndexPath: IndexPath?
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -88,6 +89,8 @@ class ToolViewController: UIViewController{
         navigationItem.rightBarButtonItem = rightBarButtonItem
         //drawVC.didMove(toParent: self)
     }
+    
+    
     
     func setupCollectonViewSideGradient() {
         view.addSubview(rightGradientView)
@@ -152,7 +155,7 @@ class ToolViewController: UIViewController{
             collectionFromTools.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
             collectionFromTools.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
             collectionFromTools.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -8),
-            collectionFromTools.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.135)
+            collectionFromTools.heightAnchor.constraint(equalToConstant: 100)
         ])
         
         NSLayoutConstraint.activate([
@@ -161,5 +164,8 @@ class ToolViewController: UIViewController{
             tableViewForColors.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.6),
             tableViewForColors.widthAnchor.constraint(equalToConstant: 60)
         ])
+        
+        collectionFromTools.setNeedsLayout()
+        collectionFromTools.layoutIfNeeded()
     }
 }

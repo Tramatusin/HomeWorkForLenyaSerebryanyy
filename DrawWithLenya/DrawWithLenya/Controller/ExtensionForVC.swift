@@ -51,6 +51,7 @@ extension ViewController: UICollectionViewDelegateFlowLayout {
 
 //MARK: Здесь расширения для коллекции, которая находится в рисовалке
 extension ToolViewController:  UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout{
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         //значение постоянно, потому что у нас ровно 6 инструментов
         return 6
@@ -64,24 +65,27 @@ extension ToolViewController:  UICollectionViewDelegate, UICollectionViewDataSou
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         selectedIndexPath = indexPath
+        let cell = collectionView.cellForItem(at: indexPath)
+        UIView.animate(withDuration: 0.3, animations: {
+            cell?.layer.cornerRadius = (60*1.5)/2.0
+        })
         collectionView.performBatchUpdates(nil, completion: nil)
         drawVC.currentTool = DataStash.namesOfImage[indexPath.row].type
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath)
+        UIView.animate(withDuration: 0.3, animations: {
+            cell?.layer.cornerRadius = 60 / 2.0
+        })
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         var size = CGSize(width: 60, height: 60)
         if let index = selectedIndexPath, index.row == indexPath.row{
             size = CGSize(width: 60*1.5, height: 60*1.5)
-            UIView.animate(withDuration: 0.3, animations: {
-                cell?.layer.cornerRadius = (60*1.5)/2.0
-            })
             return size
         }
-        UIView.animate(withDuration: 0.5, animations: {
-            cell?.layer.cornerRadius = 60 / 2.0
-            cell?.transform = CGAffineTransform(scaleX: 1.0, y: 1.0)
-        })
         return size
     }
 }
