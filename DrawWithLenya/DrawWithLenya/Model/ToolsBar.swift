@@ -47,11 +47,11 @@ class ToolsForDraw{
         guard let firstP = line.first, let secondP = line.last else {
             return UIBezierPath.init()
         }
-        let rectForCircle = CGRect(x: firstP.x, y: firstP.y, width: secondP.x - firstP.x , height:  secondP.y - firstP.y)
+        let rect = CGRect(x: firstP.x, y: firstP.y, width: secondP.x - firstP.x , height:  secondP.y - firstP.y)
         
         let path = UIBezierPath.init(roundedRect: CGRect.init(x: firstP.x, y: firstP.y,
-                                                              width: rectForCircle.width,
-                                                              height: rectForCircle.height), cornerRadius: 15)
+                                            width: rect.width,
+                                            height: rect.height), cornerRadius: 15)
         return path
     }
     
@@ -59,9 +59,7 @@ class ToolsForDraw{
         guard let firstP = line.first, let secondP = line.last else {
             return UIBezierPath.init()
         }
-        
         let path = UIBezierPath.init()
-        
         path.move(to: firstP)
         path.addLine(to: secondP)
         return path
@@ -83,12 +81,12 @@ class ToolsForDraw{
         guard let firstP = line.first, let secondP = line.last else {
             return UIBezierPath.init()
         }
-        let rectForCircle = CGRect(x: firstP.x, y: firstP.y, width: secondP.x - firstP.x , height:  secondP.y - firstP.y)
+        let rect = CGRect(x: firstP.x, y: firstP.y, width: secondP.x - firstP.x , height:  secondP.y - firstP.y)
         let quarter = calculateQuarter(firstP: firstP, secondP: secondP)
         
         let path = UIBezierPath.init(rect: CGRect.init(x: firstP.x, y: firstP.y,
-                                    width: quarter.widthCoef * rectForCircle.width,
-                                    height: quarter.heightCoef * rectForCircle.height))
+                                    width: quarter.widthCoef * rect.width,
+                                    height: quarter.heightCoef * rect.height))
         return path
     }
     

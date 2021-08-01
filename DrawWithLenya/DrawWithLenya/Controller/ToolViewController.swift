@@ -29,8 +29,37 @@ class ToolViewController: UIViewController{
         collection.backgroundColor = .clear
         collection.delegate = self
         collection.translatesAutoresizingMaskIntoConstraints = false
+        collection.showsHorizontalScrollIndicator = false
         collection.register(ToolsViewCell.self, forCellWithReuseIdentifier: "tools")
         return collection
+    }()
+    
+    lazy var leftGradientView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    lazy var leftGradient: CAGradientLayer = {
+        let gradient = CAGradientLayer()
+        gradient.colors = [UIColor.gray.cgColor, UIColor.white.withAlphaComponent(0).cgColor]
+        gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
+        gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
+        return gradient
+    }()
+    
+    lazy var rightGradientView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
+    lazy var rightGradient: CAGradientLayer = {
+        let gradient = CAGradientLayer()
+        gradient.colors = [UIColor.gray.cgColor, UIColor.white.withAlphaComponent(0).cgColor]
+        gradient.startPoint = CGPoint(x: 1.0, y: 0.5)
+        gradient.endPoint = CGPoint(x: 0.0, y: 0.5)
+        return gradient
     }()
     
     lazy var tableViewForColors: UITableView = {
@@ -38,6 +67,7 @@ class ToolViewController: UIViewController{
         tableView.dataSource = self
         tableView.delegate = self
         tableView.translatesAutoresizingMaskIntoConstraints = false
+        tableView.showsVerticalScrollIndicator = false
         tableView.register(ColorViewCell.self, forCellReuseIdentifier: "color")
         return tableView
     }()
@@ -53,9 +83,36 @@ class ToolViewController: UIViewController{
         buttonForPalette.isHidden = false
         tableViewForColors.isHidden = true
         setupConstraints()
+        setupCollectonViewSideGradient()
         let rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .cancel, target: self, action: #selector(tapOnBar))
         navigationItem.rightBarButtonItem = rightBarButtonItem
         //drawVC.didMove(toParent: self)
+    }
+    
+    func setupCollectonViewSideGradient() {
+        view.addSubview(rightGradientView)
+        view.addSubview(leftGradientView)
+        
+        NSLayoutConstraint.activate([
+            leftGradientView.topAnchor.constraint(equalTo: collectionFromTools.topAnchor),
+            leftGradientView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            leftGradientView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            leftGradientView.widthAnchor.constraint(equalToConstant: 15)
+        ])
+        NSLayoutConstraint.activate([
+            rightGradientView.topAnchor.constraint(equalTo: collectionFromTools.topAnchor),
+            rightGradientView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
+            rightGradientView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            rightGradientView.widthAnchor.constraint(equalToConstant: 15)
+        ])
+        
+        rightGradient.removeFromSuperlayer()
+        leftGradient.removeFromSuperlayer()
+        
+        leftGradient.frame = CGRect(x: 0, y: 0, width: view.bounds.width / 8, height: view.bounds.height)
+        rightGradient.frame = CGRect(x: -32, y: 0, width: view.bounds.width / 8, height: view.bounds.height)
+        rightGradientView.layer.addSublayer(rightGradient)
+        leftGradientView.layer.addSublayer(leftGradient)
     }
     
     @objc
@@ -92,8 +149,8 @@ class ToolViewController: UIViewController{
         ])
         
         NSLayoutConstraint.activate([
-            collectionFromTools.leftAnchor.constraint(equalTo: view.leftAnchor),
-            collectionFromTools.rightAnchor.constraint(equalTo: view.rightAnchor),
+            collectionFromTools.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
+            collectionFromTools.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
             collectionFromTools.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -8),
             collectionFromTools.heightAnchor.constraint(equalTo: view.heightAnchor, multiplier: 0.135)
         ])

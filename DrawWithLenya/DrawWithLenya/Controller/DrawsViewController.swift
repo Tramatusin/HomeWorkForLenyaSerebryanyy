@@ -27,15 +27,10 @@ class DrawsViewController: UIViewController {
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard let point = touches.first?.location(in: nil) else { return}
-        
         print(point)
-        
         line.append(point)
-        
         let newPath = tools.callWantedDrawFunc(tool: currentTool, line: line)
-        
         guard let lastLayer = view.layer.sublayers?.last as? CAShapeLayer else {return}
-        
         lastLayer.path = newPath.cgPath
     }
     

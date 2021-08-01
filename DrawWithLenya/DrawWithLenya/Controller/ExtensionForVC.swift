@@ -19,7 +19,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         return cell
         }
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Picture", for: indexPath) as! PictureViewCell
-        cell.configCell(name: PictureStash.pictures[indexPath.row - 1].imgName)
+        cell.configCell(name: PictureStash.pictures[indexPath.row - 1].imgName, img: PictureStash.pictures[indexPath.row - 1].img)
         return cell
     }
     
@@ -73,10 +73,8 @@ extension ToolViewController:  UICollectionViewDelegate, UICollectionViewDataSou
         var size = CGSize(width: 60, height: 60)
         if let index = selectedIndexPath, index.row == indexPath.row{
             size = CGSize(width: 60*1.5, height: 60*1.5)
-            //cell?.layer.cornerRadius = (60*1.5)/2.0
-            UIView.animate(withDuration: 2.0, animations: {
+            UIView.animate(withDuration: 0.3, animations: {
                 cell?.layer.cornerRadius = (60*1.5)/2.0
-                cell?.transform = CGAffineTransform(scaleX: 1.2, y: 1.2)
             })
             return size
         }

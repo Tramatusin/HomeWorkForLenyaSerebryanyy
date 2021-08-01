@@ -12,7 +12,7 @@ class ToolsViewCell: UICollectionViewCell {
     var imageViewForTools: UIImageView = {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
-        imageView.contentMode = .scaleAspectFill
+        imageView.contentMode = .scaleAspectFit
         return imageView
     }()
     
@@ -24,7 +24,7 @@ class ToolsViewCell: UICollectionViewCell {
         layer.masksToBounds = false
         self.layer.borderWidth = 1.5
         self.layer.borderColor = UIColor.black.cgColor
-        backgroundColor = .systemBlue
+        backgroundColor = .lightGray
         setupConstraint()
     }
     

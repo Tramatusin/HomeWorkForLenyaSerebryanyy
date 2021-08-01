@@ -32,7 +32,7 @@ class ViewController: UIViewController {
     }
     
     @objc func addAction() {
-       pushDrawVC()
+        pushDrawVC()
     }
     
     func pushDrawVC() {
