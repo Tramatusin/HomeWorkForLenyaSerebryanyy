@@ -44,7 +44,7 @@ class ToolViewController: UIViewController{
     
     lazy var leftGradient: CAGradientLayer = {
         let gradient = CAGradientLayer()
-        gradient.colors = [UIColor.gray.cgColor, UIColor.white.withAlphaComponent(0).cgColor]
+        gradient.colors = [UIColor.white.cgColor, UIColor.white.withAlphaComponent(0).cgColor]
         gradient.startPoint = CGPoint(x: 0.0, y: 0.5)
         gradient.endPoint = CGPoint(x: 1.0, y: 0.5)
         return gradient
@@ -58,7 +58,7 @@ class ToolViewController: UIViewController{
     
     lazy var rightGradient: CAGradientLayer = {
         let gradient = CAGradientLayer()
-        gradient.colors = [UIColor.gray.cgColor, UIColor.white.withAlphaComponent(0).cgColor]
+        gradient.colors = [UIColor.white.cgColor, UIColor.white.withAlphaComponent(0).cgColor]
         gradient.startPoint = CGPoint(x: 1.0, y: 0.5)
         gradient.endPoint = CGPoint(x: 0.0, y: 0.5)
         return gradient
@@ -108,13 +108,13 @@ class ToolViewController: UIViewController{
         view.addSubview(leftGradientView)
         
         NSLayoutConstraint.activate([
-            leftGradientView.topAnchor.constraint(equalTo: collectionFromTools.topAnchor),
+            leftGradientView.topAnchor.constraint(equalTo: collectionFromTools.topAnchor, constant: 10),
             leftGradientView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             leftGradientView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             leftGradientView.widthAnchor.constraint(equalToConstant: 15)
         ])
         NSLayoutConstraint.activate([
-            rightGradientView.topAnchor.constraint(equalTo: collectionFromTools.topAnchor),
+            rightGradientView.topAnchor.constraint(equalTo: collectionFromTools.topAnchor, constant: 10),
             rightGradientView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             rightGradientView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             rightGradientView.widthAnchor.constraint(equalToConstant: 15)
@@ -123,8 +123,12 @@ class ToolViewController: UIViewController{
         rightGradient.removeFromSuperlayer()
         leftGradient.removeFromSuperlayer()
         
-        leftGradient.frame = CGRect(x: 0, y: 0, width: view.bounds.width / 8, height: view.bounds.height)
-        rightGradient.frame = CGRect(x: -32, y: 0, width: view.bounds.width / 8, height: view.bounds.height)
+        leftGradient.frame = CGRect(x: 0, y: 0, width: view.bounds.width / 8, height: 80)
+        leftGradient.cornerRadius = 25
+        leftGradient.maskedCorners = [.layerMinXMaxYCorner, .layerMinXMinYCorner]
+        rightGradient.frame = CGRect(x: -32, y: 0, width: view.bounds.width / 8, height: 80)
+        rightGradient.cornerRadius = 25
+        rightGradient.maskedCorners = [.layerMaxXMaxYCorner, .layerMaxXMinYCorner]
         rightGradientView.layer.addSublayer(rightGradient)
         leftGradientView.layer.addSublayer(leftGradient)
     }

@@ -13,6 +13,8 @@ class ToolsViewCell: UICollectionViewCell {
         let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.contentMode = .scaleAspectFit
+        imageView.image?.withRenderingMode(UIImage.RenderingMode.alwaysTemplate)
+        imageView.tintColor = .white
         return imageView
     }()
     
@@ -24,12 +26,13 @@ class ToolsViewCell: UICollectionViewCell {
         layer.masksToBounds = false
         self.layer.borderWidth = 1.5
         self.layer.borderColor = UIColor.black.cgColor
-        backgroundColor = .lightGray
+        backgroundColor = .systemBlue
         setupConstraint()
     }
     
     func setImage(image: UIImage){
         imageViewForTools.image = image
+        
     }
     
     required init?(coder: NSCoder) {

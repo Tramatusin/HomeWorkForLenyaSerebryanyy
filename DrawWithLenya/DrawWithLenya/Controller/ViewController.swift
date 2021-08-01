@@ -30,9 +30,13 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         rightBarButtonItem = UIBarButtonItem.init(barButtonSystemItem: .add, target: self, action: #selector(addAction))
-        navigationItem.title = "You have \(PictureStash.pictures.count) images"
+        updateNavTitle()
         navigationItem.rightBarButtonItem = rightBarButtonItem
         confCollestionView()
+    }
+    
+    func updateNavTitle() {
+        navigationItem.title = "You have \(PictureStash.pictures.count) images"
     }
     
     @objc func addAction() {
