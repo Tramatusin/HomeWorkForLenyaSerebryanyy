@@ -15,6 +15,8 @@ class DrawsViewController: UIViewController {
     var currentTool: ModeDraw = .line
     public var color: UIColor = UIColor.red
     
+    var dog = "I'm dog"
+    
     override func viewDidLoad() {
         view = canvas
         view.backgroundColor = .white
